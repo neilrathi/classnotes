@@ -3,11 +3,76 @@
 
 %%%%%% Basic Formatting %%%%%%
 % Fonts
-\RequirePackage{libertine}
-\DeclareOption{cmf}{
-	\renewcommand{\familydefault}{cmr}
-}
+\newif\if@loadhumanfont
+\DeclareOption{human}{\@loadhumanfonttrue}
+\newif\if@loadgaraldefont
+\DeclareOption{gara}{\@loadgaraldefonttrue}
+\newif\if@loadtransitionalfont
+\DeclareOption{transitional}{\@loadtransitionalfonttrue}
+\newif\if@loaddidofont
+\DeclareOption{dido}{\@loaddidofonttrue}
+\newif\if@loadmechfont
+\DeclareOption{mech}{\@loadmechfonttrue}
+\newif\if@loadsansfont
+\DeclareOption{sans}{\@loadsansfonttrue}
+\newif\if@loadcmsfont
+\DeclareOption{cms}{\@loadcmsfonttrue}
+
+\newif\if@mathfont
+\DeclareOption{mathfont}{\@mathfonttrue}
+
 \ProcessOptions\relax
+
+\if@loadhumanfont
+	\usepackage[nf]{coelacanth}
+	\usepackage[T1]{fontenc}
+	\let\oldnormalfont\normalfont
+	\def\normalfont{\oldnormalfont\mdseries}
+\fi
+\if@loadgaraldefont
+	\RequirePackage{ebgaramond-maths}
+\fi
+\if@loadtransitionalfont
+	\RequirePackage{libertinus}
+\fi
+\if@loaddidofont
+	\RequirePackage{tgschola}
+\fi
+\if@loadmechfont
+	\RequirePackage{beton}
+\fi
+\if@loadsansfont
+	\RequirePackage{lmodern}
+	\renewcommand{\familydefault}{lmss}
+\fi
+\if@loadcmsfont
+	\renewcommand{\familydefault}{cmss}
+\fi
+\if@mathfont
+    \if@loadhumanfont
+        \RequirePackage[cmintegrals,cmbraces]{newtxmath}
+        \let\openbox\undefined
+    \fi
+    \if@loadgaraldefont
+        \RequirePackage[cmintegrals,cmbraces]{newtxmath}
+        \let\openbox\undefined
+    \fi
+    \if@loadtransitionalfont
+        \RequirePackage{libertinust1math}
+    \fi
+    \if@loaddidofont
+        \RequirePackage{fouriernc}
+    \fi
+    \if@loadmechfont
+        \RequirePackage{euler}
+    \fi
+    \if@loadsansfont
+        \RequirePackage{sansmathfonts}
+    \fi
+    \if@loadcmsfont
+        \RequirePackage{sansmathfonts}
+    \fi
+\fi
 \renewcommand*{\ttdefault}{cmtt}
 
 % General Packages

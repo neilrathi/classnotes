@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{classnotes}
+\usepackage[transitional, mathfont]{classnotes}
 
 \title{Using the Classnotes Package}
 \author{Neil Rathi}
@@ -16,7 +16,7 @@
 \section{Introduction}
 The \texttt{classnotes.sty} package is a package designed mostly for taking lecture notes, as the name suggests. It comes with multiple pre-loaded packages useful for typesetting notes in various subjects, including math, chemistry, linguistics, and physics. I created this package mostly because I realized that my preambles were getting way too long for a normal document, and decided to standardize across domains so that I could use just one package when taking notes.
 
-It's simple to create a document using the package, and the package does most of the important formatting automatically, like the title, table of contents, and footer. You can optionally pass in the \texttt{cmf} (computer modern fonts) option to make the document font default Computer Modern.
+It's simple to create a document using the package, and the package does most of the important formatting automatically, like the title, table of contents, and footer. You can optionally pass the \texttt{human}, \texttt{gara}, \texttt{transitional}, \texttt{dido}, \texttt{mech}, \texttt{sans}, or \texttt{cms} options. The first five correspond to their Vox-ATypI classifications (Coelacanth, Garamond, Libertinus\footnote{I prefer Crimson, but I needed \texttt{scshape}. If you have Clara or Spectral installed, that's another option.}, \TeX{} Gyre Schola, and Computer Concrete, respectively), the second to last is Latin Modern Sans, and the last is Computer Modern Sans. Otherwise, the default font is Computer Modern Serif. This guide uses the \verb|transitional| option. You can also use the \verb|mathfont| option to change the font in math mode from default CMS to match the style of the selected font (I used it here to demonstrate, but I recommend not).
 
 \subsection{About this Guide}
 The purpose of this document isn't to give a comprehensive list of every feature in the package. Instead, it provides an overview of some of the most fundamental pieces of the package, and also shows what the package actually looks like in use.
@@ -77,7 +77,7 @@ The final important boxed environment is the \verb|defn| environment, used for d
 \begin{defn}[Entropy]
 	The \textit{entropy}, or average information, of a discrete random variable $X$ with outcomes $x_1...x_n$ each which have probability $P(x_1)...P(x_n)$, respectively, is
 	\[H[X] = -\sum_{i=1}^n P(x_i)\log P(x_i),\]
-	it's average information. \cite{shannon1948}.
+	it's average information \cite{shannon1948}.
 \end{defn}
 In total, there are three different classes of theorem environment, \verb|thm|, \verb|defn|, and \verb|comment|. Each of the environments belongs to one of these three stylistic groups. The last main environment is the \verb|problem| environment, ideal for end-of-chapter problems. Unlike the above environments, these are less clearly separated from the text.
 \begin{problem}
@@ -103,11 +103,12 @@ For trigonometry, a few helpful commands are provided. The \verb|\inv| command a
 For mathematical logic, some shorthands are provided such as \verb|\is| instead of \verb|\equiv| ($\is$), \verb|\isE| instead of \verb|\exists| ($\isE$), and \verb|\xor| instead of \verb|\oplus| ($\xor$). The package has things like \verb|\Hom|, \verb|\Gal|, and \verb|\Aut| for algebra. The command \verb|\modop{a}{b}{c}| outputs $\modop{a}{b}{c}$. Various summations are also provided, like \verb|\cycsum|.
 
 \subsection{Computer Science}
-The pre-loaded packages for computer science are \texttt{algorithm2e}, \texttt{listings}, and \texttt{stmaryrd}. The basic shorthand commands are \verb|\defas|, which is the same as \verb|\coloneqq| ($\defas$), \verb|\setto|, which is a backwards arrow ($\setto$), and \verb|\bigo|, which is a \texttt{mathcal} O for big-O notation ($\bigo$).
+The pre-loaded packages for computer science are \texttt{algorithm2e}, \texttt{listings}, and \texttt{stmaryrd}. The basic shorthand commands are \verb|\defas|, which is the same as \verb|\coloneqq| ($\defas$), \verb|\setto|, a leftwards arrow ($\setto$), and \verb|\bigo|, a \texttt{mathcal} O for big-O notation ($\bigo$).
 
 Another \texttt{thm} class environment is the \texttt{algo} environment, as seen below (using algorithm2e to typeset the algorithm itself)
 \begin{algo}[Euclidean Algorithm]
 	Given two nonnegative integers, recursively finds their greatest common divisor.
+	
 	\begin{algorithm}[H]
     	Euclid$(a,b)$:
     	
@@ -125,12 +126,11 @@ In addition to pseudocode algorithms, the package comes with three predefined st
 \lststyle{pystyle}
 \begin{lstlisting}[caption=Extended Euclidean Algorithm in Python]
 def euclid(a, b):  
-    # Base Case  
+    # base  
     if a == 0 :   
         return b, 0, 1
+    # recursive step
     gcd, x1, y1 = euclid(b%a, a)
-    # Update x and y using results of recursive  
-    # call  
     x = y1 - (b//a) * x1  
     y = x1  
     return gcd, x, y 
