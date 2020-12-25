@@ -11,13 +11,11 @@ A LaTeX package designed for LiveTeXing lecture notes.
 * [Natural Sciences](https://github.com/neilrathi/classnotes#natural-sciences)
 
 ## About
-The `classnotes` package is a package for LaTeX2e which has pre-loaded packages, environments, and shorthand commands for a variety of fields including math, chemistry, and linguistics. It's useful for anyone who wants to create organized, clear lecture notes which can be easily used for review, and especially helpful for LiveTeXing during lectures.
+The `classnotes` package is a package for LaTeX2e which has pre-loaded packages, environments, and shorthand commands for a variety of fields including math, chemistry, and linguistics. It's useful for anyone who wants to create organized, clear lecture notes which can be easily used for review, and especially helpful for LiveTeXing during lectures. To see the package in use, check out the [classnotes.pdf](https://github.com/neilrathi/classnotes/classnotes.pdf) file in this repository. The rest of the readme is essentially documentation for all of the special commands and features.
 
 To install the package, follow standard procedure for installing a custom `.sty` file. If you're unsure how to do that, check out [this link](https://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te). After loading the package with `usepackage{classnotes}`, you should require minimal setup. Just create a title and author, and then begin your document.
 
-You can optionally use the `cmf` option to change the font from Libertine to Computer Modern.
-
-To see the package in use, check out the [classnotes.pdf](https://github.com/neilrathi/classnotes/classnotes.pdf) file in this repository. The rest of the readme is essentially documentation for all of the special commands and features.
+You can pass in the `human`, `gara`, `transitional`, `dido`, `mech`, `sans`, and `cms` options to change the document font (the first five refer to their Vox-ATypI categories—Caelacanth, Garamond, Libertinus , TeX Gyre Schola, and Computer Concrete–sans is Latin Modern Sans, and cms is Computer Modern Sans). You can also pass in the `mathfont` option to have the math mode font match the rest of the text.
 
 ## Features
 The package comes with pre-loaded packages and commands for math, CS, linguistics, and science.
