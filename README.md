@@ -1,6 +1,15 @@
 # `classnotes` package
 A LaTeX package designed for LiveTeXing lecture notes.
 
+## Contents
+* [About](https://github.com/neilrathi/classnotes#about)
+* [Features](https://github.com/neilrathi/classnotes#features)
+* [Theorems](https://github.com/neilrathi/classnotes#theorems)
+* [Math](https://github.com/neilrathi/classnotes#math)
+* [Computer Science](https://github.com/neilrathi/classnotes#computer-science)
+* [Linguistics](https://github.com/neilrathi/classnotes#linguistics)
+* [Natural Sciences](https://github.com/neilrathi/classnotes#natural-sciences)
+
 ## About
 The `classnotes` package is a package for LaTeX2e which has pre-loaded packages, environments, and shorthand commands for a variety of fields including math, chemistry, and linguistics. It's useful for anyone who wants to create organized, clear lecture notes which can be easily used for review, and especially helpful for LiveTeXing during lectures.
 
@@ -43,7 +52,7 @@ The theorem boxes are created using `mdframed` and `thmtools`. They have a gray 
 
 **Proofs:** The `proof` environment is the same as the `amsthm` proof environment, but with a black square for the QED symbol. The `solution` environment is the same, but with *Solution.* instead of *Proof.* in the header. The package also has a two-column proof environment.
 
-### Mathematics
+### Math
 The pre-loaded packages are `amsmath`, `amssymb`, `amsthm`, `amsfonts`, `mathrsfs`, `mathtools`, and `xfrac`.
 
 **General:** The `\mathbb{}` font use the abbreviation `\AA` rather than `\mathbb{AA}`. The `\mathcal{}` font uses `\mcA` rather than `\mathcal{A}`. The command `\phii` outputs φ, and `\eps` outputs ε.  Some additional generic commands include `\psub` (proper subset) instead of `\subseteq`, `\qeq` (= with ? on top), `\p{}` (parenthesis with automatic resizing), `\floor`, `\ceil`, and `\bvec` (auto-sized delimiters--no more `\left\lfloor x \right\rfloor`), `\thus` instead of `\therefore`, and `\isom` instead of `\simeq`. The package also defines `argmin` and `argmax`.
