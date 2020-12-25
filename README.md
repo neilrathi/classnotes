@@ -15,6 +15,8 @@ The `classnotes` package is a package for LaTeX2e which has pre-loaded packages,
 
 To install the package, follow standard procedure for installing a custom `.sty` file. If you're unsure how to do that, check out [this link](https://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te). After loading the package with `usepackage{classnotes}`, you should require minimal setup. Just create a title and author, and then begin your document.
 
+Feel free to use this package for any of your own personal use. If you can, it would be great to reference me as the creator.
+
 You can pass in the `human`, `gara`, `transitional`, `dido`, `mech`, `sans`, and `cms` options to change the document font (the first five refer to their Vox-ATypI categories—Caelacanth, Garamond, Libertinus , TeX Gyre Schola, and Computer Concrete–sans is Latin Modern Sans, and cms is Computer Modern Sans). You can also pass in the `mathfont` option to have the math mode font match the rest of the text.
 
 ## Features
