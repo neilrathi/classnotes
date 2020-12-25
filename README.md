@@ -55,7 +55,7 @@ The theorem boxes are created using `mdframed` and `thmtools`. They have a gray 
 ### Math
 The pre-loaded packages are `amsmath`, `amssymb`, `amsthm`, `amsfonts`, `mathrsfs`, `mathtools`, and `xfrac`.
 
-**General:** The `\mathbb{}` font use the abbreviation `\AA` rather than `\mathbb{AA}`. The `\mathcal{}` font uses `\mcA` rather than `\mathcal{A}`. The command `\phii` outputs φ, and `\eps` outputs ε.  Some additional generic commands include `\psub` (proper subset) instead of `\subseteq`, `\qeq` (= with ? on top), `\p{}` (parenthesis with automatic resizing), `\floor`, `\ceil`, and `\bvec` (auto-sized delimiters--no more `\left\lfloor x \right\rfloor`), `\thus` instead of `\therefore`, and `\isom` instead of `\simeq`. The package also defines `argmin` and `argmax`.
+**General:** The `\mathbb{}` font use the abbreviation `\AA` rather than `\mathbb{AA}`. The `\mathcal{}` font uses `\mcA` rather than `\mathcal{A}`. The command `\phii` outputs φϕ, and `\eps` outputs ε.  Some additional generic commands include `\psub` (proper subset) instead of `\subseteq`, `\qeq` (= with ? on top), `\p{}` (parenthesis with automatic resizing), `\floor`, `\ceil`, and `\bvec` (auto-sized delimiters--no more `\left\lfloor x \right\rfloor`), `\thus` instead of `\therefore`, and `\isom` instead of `\simeq`. The package also defines `argmin` and `argmax`.
 
 **Trig:** `\sint` and `\sinx` output sinθ and sinx, respectively, and `\sinit` and `\sinix` output sin⁻¹θ and sin⁻¹x. The `\inv` command can replace `^{-1}`, and `\degr` is a quicker way to write `^{\circ}`. The package also has `\cis`.
 
