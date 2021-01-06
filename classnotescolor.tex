@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[transitional, mathfont]{classnotes}
+\usepackage[transitional, mathfont, colors]{classnotes}
 
 \title{Using the Classnotes Package}
 \author{Neil Rathi}
@@ -16,7 +16,7 @@
 \section{Introduction}
 The \texttt{classnotes.sty} package is a package designed mostly for taking lecture notes, as the name suggests. It comes with multiple pre-loaded packages useful for typesetting notes in various subjects, including math, chemistry, linguistics, and physics. I created this package mostly because I realized that my preambles were getting way too long for a normal document, and decided to standardize to use just one package when taking notes. It's simple to create a document using the package, which does most of the important formatting automatically.
 
-The default font is Computer Modern Serif. You can optionally pass the \texttt{human}, \texttt{gara}, \texttt{transitional}, \texttt{dido}, \texttt{mech}, \texttt{sans}, or \texttt{cms} options. The first five correspond to their Vox-ATypI classifications (Coelacanth, Garamond, Libertinus\footnote{I prefer Crimson, but I needed \texttt{scshape}. If you have Clara or Spectral installed, that's another option.}, \TeX{} Gyre Schola, and Computer Concrete, respectively), the second to last is Latin Modern Sans, and the last is Computer Modern Sans. This guide uses the \verb|transitional| option. You can also use the \verb|mathfont| option to change the font in math mode from default CMS to match the style of the selected font (I used it here to demonstrate, but I recommend not). In addition, you can pass in the \texttt{colors} option to make theorem boxes colorful, as in \texttt{classnotescolor.pdf}.
+The default font is Computer Modern Serif. You can optionally pass the \texttt{human}, \texttt{gara}, \texttt{transitional}, \texttt{dido}, \texttt{mech}, \texttt{sans}, or \texttt{cms} options. The first five correspond to their Vox-ATypI classifications, the second to last is Latin Modern Sans, and the last is Computer Modern Sans. This guide uses the \verb|transitional| option. You can also use the \verb|mathfont| option to change the font in math mode from default CMS to match the style of the selected font (I used it here to demonstrate, but I recommend not). For this guide, I passed in the \texttt{colors} option to make theorem boxes colorful.
 
 \subsection{About this Guide}
 The purpose of this document isn't to give a comprehensive list of every feature in the package. Instead, it provides an overview of some of the most fundamental pieces of the package, and also shows what the package actually looks like in use.

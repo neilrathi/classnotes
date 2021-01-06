@@ -18,6 +18,9 @@
 \newif\if@loadcmsfont
 \DeclareOption{cms}{\@loadcmsfonttrue}
 
+\newif\if@loadcolors\@loadcolorsfalse
+\DeclareOption{colors}{\@loadcolorstrue}
+
 \newif\if@mathfont
 \DeclareOption{mathfont}{\@mathfonttrue}
 
@@ -31,6 +34,26 @@
 \fi
 \if@loadgaraldefont
 	\RequirePackage{ebgaramond-maths}
+	\RequirePackage[cmintegrals,cmbraces]{newtxmath}
+    \let\openbox\undefined
+	\makeatletter
+	\DeclareSymbolFont{ntxletters}{OML}{ntxmi}{m}{it}
+	\SetSymbolFont{ntxletters}{bold}{OML}{ntxmi}{b}{it}
+	\re@DeclareMathSymbol{\leftharpoonup}{\mathrel}{ntxletters}{"28}
+	\re@DeclareMathSymbol{\leftharpoondown}{\mathrel}{ntxletters}{"29}
+	\re@DeclareMathSymbol{\rightharpoonup}{\mathrel}{ntxletters}{"2A}
+	\re@DeclareMathSymbol{\rightharpoondown}{\mathrel}{ntxletters}{"2B}
+	\re@DeclareMathSymbol{\triangleleft}{\mathbin}{ntxletters}{"2F}
+	\re@DeclareMathSymbol{\triangleright}{\mathbin}{ntxletters}{"2E}
+	\re@DeclareMathSymbol{\partial}{\mathord}{ntxletters}{"40}
+	\re@DeclareMathSymbol{\flat}{\mathord}{ntxletters}{"5B}
+	\re@DeclareMathSymbol{\natural}{\mathord}{ntxletters}{"5C}
+	\re@DeclareMathSymbol{\star}{\mathbin}{ntxletters}{"3F}
+	\re@DeclareMathSymbol{\smile}{\mathrel}{ntxletters}{"5E}
+	\re@DeclareMathSymbol{\frown}{\mathrel}{ntxletters}{"5F}
+	\re@DeclareMathSymbol{\sharp}{\mathord}{ntxletters}{"5D}
+	\re@DeclareMathAccent{\vec}{\mathord}{ntxletters}{"7E}
+	\makeatother
 \fi
 \if@loadtransitionalfont
 	\RequirePackage{libertinus}
@@ -82,6 +105,7 @@
 \numberwithin{equation}{section}
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
+\RequirePackage{ifthen}
 
 % Header, Formatting, TOC, and Title
 \RequirePackage{fancyhdr}
@@ -117,9 +141,20 @@
 
 % Colors
 \definecolor{newgreen}{RGB}{36, 139, 33}
+\definecolor{lightgreen}{RGB}{244, 249, 243}
+
 \definecolor{newgray}{RGB}{250, 250, 250}
 \definecolor{newblack}{RGB}{36, 36, 36}
+
 \definecolor{newblue}{RGB}{16, 100, 143}
+\definecolor{lightblue}{RGB}{250, 254, 255}
+
+\definecolor{newred}{RGB}{196, 0, 75}
+\definecolor{lighred}{RGB}{255, 242, 253}
+
+\definecolor{newpurple}{RGB}{96, 0, 138}
+\definecolor{lightpurple}{RGB}{252, 245, 255}
+
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -138,6 +173,43 @@
 	linecolor=newblack,
 	nobreak=true,
 	backgroundcolor=newgray,
+}
+
+\mdfdefinestyle{mdblue}{
+	linewidth=0.5pt,
+	skipabove=12pt,
+	innerbottommargin=9pt,
+	skipbelow=2pt,
+	linecolor=newblue,
+	nobreak=true,
+	backgroundcolor=lightblue,
+}
+\mdfdefinestyle{mdpurple}{
+	linewidth=0.5pt,
+	skipabove=12pt,
+	innerbottommargin=9pt,
+	skipbelow=2pt,
+	linecolor=newpurple,
+	nobreak=true,
+	backgroundcolor=lightpurple,
+}
+\mdfdefinestyle{mdgreen}{
+	linewidth=0.5pt,
+	skipabove=12pt,
+	innerbottommargin=9pt,
+	skipbelow=2pt,
+	linecolor=newgreen,
+	nobreak=true,
+	backgroundcolor=lightgreen,
+}
+\mdfdefinestyle{mdred}{
+	linewidth=0.5pt,
+	skipabove=12pt,
+	innerbottommargin=9pt,
+	skipbelow=2pt,
+	linecolor=newred,
+	nobreak=true,
+	backgroundcolor=lightred,
 }
 
 \declaretheoremstyle[
@@ -163,26 +235,70 @@
 	mdframed={style=mdsimple}
 ]{simplecomment}
 
+\declaretheoremstyle[
+	headfont=\bfseries\color{black},
+	mdframed={style=mdblue},
+	headpunct={\\[3pt]},
+	postheadspace={0pt}
+]{bluethm}
+
+\declaretheoremstyle[
+	headfont=\bfseries\color{black},
+	mdframed={style=mdpurple},
+	headpunct={\\[3pt]},
+	postheadspace={0pt}
+]{purplethm}
+
+\declaretheoremstyle[
+	headfont=\itshape\color{black},
+	bodyfont=\normalfont,
+	spaceabove=2pt,
+	spacebelow=2pt,
+	mdframed={style=mdgreen}
+]{greencomment}
+
+\declaretheoremstyle[
+	headfont=\itshape\color{black},
+	bodyfont=\normalfont,
+	spaceabove=2pt,
+	spacebelow=2pt,
+	mdframed={style=mdred}
+]{redcomment}
+
 % Theorem Boxes
-\declaretheorem[style = simplethm, name = Theorem, parent = section]{thrm}
-\declaretheorem[style = simplethm, name = Equation, sibling = thrm]{eqn}
-\declaretheorem[style = simplethm, name = Lemma, sibling = thrm]{lemma}
-\declaretheorem[style = simplethm, name = Corollary, sibling = thrm]{corr}
-
-\declaretheorem[style = simplethm, name = Law, sibling = thrm]{law}
-\declaretheorem[style = simplethm, name = Algorithm, sibling = thrm]{algo}
-\declaretheorem[style = simplethm, name = Diagram, sibling = thrm]{diagram}
-
-\declaretheorem[style = simpledefn, name = Definition, parent = section]{defn}
-\declaretheorem[style = simplecomment, name = Remark, numbered = no]{remark}
-\declaretheorem[style = simplecomment, name = Hint, numbered = no]{hint}
-\declaretheorem[style = simplecomment, name = Question, numbered = no]{question}
-
-\declaretheorem[style = simpledefn, name = Example, parent = section]{example}
-
-\declaretheorem[style = simplecomment, name = Claim, numbered = no]{claim}
-\declaretheorem[style = simplecomment, name = Conjecture, numbered = no]{conj}
-\declaretheorem[style = simplecomment, name = Proposition, numbered = no]{prop}
+\ifthenelse{\boolean{@loadcolors}}{
+		\declaretheorem[style = bluethm, name = Theorem, parent = section]{thrm}
+		\declaretheorem[style = bluethm, name = Equation, sibling = thrm]{eqn}
+		\declaretheorem[style = bluethm, name = Lemma, sibling = thrm]{lemma}
+		\declaretheorem[style = bluethm, name = Corollary, sibling = thrm]{corr}
+		\declaretheorem[style = bluethm, name = Law, sibling = thrm]{law}
+		\declaretheorem[style = bluethm, name = Algorithm, sibling = thrm]{algo}
+		\declaretheorem[style = simplethm, name = Diagram, sibling = thrm]{diagram}
+		\declaretheorem[style = simpledefn, name = Definition, parent = section]{defn}
+		\declaretheorem[style = greencomment, name = Remark, numbered = no]{remark}
+		\declaretheorem[style = greencomment, name = Hint, numbered = no]{hint}
+		\declaretheorem[style = redcomment, name = Question, numbered = no]{question}
+		\declaretheorem[style = purplethm, name = Example, parent = section]{example}
+		\declaretheorem[style = greencomment, name = Claim, numbered = no]{claim}
+		\declaretheorem[style = greencomment, name = Conjecture, numbered = no]{conj}
+		\declaretheorem[style = greencomment, name = Proposition, numbered = no]{prop}
+	}{
+		\declaretheorem[style = simplethm, name = Theorem, parent = section]{thrm}
+		\declaretheorem[style = simplethm, name = Equation, sibling = thrm]{eqn}
+		\declaretheorem[style = simplethm, name = Lemma, sibling = thrm]{lemma}
+		\declaretheorem[style = simplethm, name = Corollary, sibling = thrm]{corr}
+		\declaretheorem[style = simplethm, name = Law, sibling = thrm]{law}
+		\declaretheorem[style = simplethm, name = Algorithm, sibling = thrm]{algo}
+		\declaretheorem[style = simplethm, name = Diagram, sibling = thrm]{diagram}
+		\declaretheorem[style = simpledefn, name = Definition, parent = section]{defn}
+		\declaretheorem[style = simplecomment, name = Remark, numbered = no]{remark}
+		\declaretheorem[style = simplecomment, name = Hint, numbered = no]{hint}
+		\declaretheorem[style = simplecomment, name = Question, numbered = no]{question}
+		\declaretheorem[style = simpledefn, name = Example, parent = section]{example}
+		\declaretheorem[style = simplecomment, name = Claim, numbered = no]{claim}
+		\declaretheorem[style = simplecomment, name = Conjecture, numbered = no]{conj}
+		\declaretheorem[style = simplecomment, name = Proposition, numbered = no]{prop}
+	}
 
 \theoremstyle{definition}
 \newtheorem{problem}{Problem}[section]
