@@ -19,6 +19,8 @@ Feel free to use this package for any of your own personal use. If you can, it w
 
 You can pass in the `human`, `gara`, `transitional`, `dido`, `mech`, `sans`, and `cms` options to change the document font (the first five refer to their Vox-ATypI categories—Caelacanth, Garamond, Libertinus , TeX Gyre Schola, and Computer Concrete–sans is Latin Modern Sans, and cms is Computer Modern Sans). You can also pass in the `mathfont` option to have the math mode font match the rest of the text.
 
+Finally, you can use the `colors` option to make the document more colorful, with green, blue, purple, and red theorem boxes. This is ideal for less "formal" notes that can be easier to read, since the theorems are even more clearly separated from the text.
+
 ## Features
 The package comes with pre-loaded packages and commands for math, CS, linguistics, and science.
 
