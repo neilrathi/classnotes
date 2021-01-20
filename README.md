@@ -11,13 +11,13 @@ A LaTeX package designed for LiveTeXing lecture notes.
 * [Natural Sciences](https://github.com/neilrathi/classnotes#natural-sciences)
 
 ## About
-The `classnotes` package is a package for LaTeX2e which has pre-loaded packages, environments, and shorthand commands for a variety of fields including math, chemistry, and linguistics. It's useful for anyone who wants to create organized, clear lecture notes which can be easily used for review, and especially helpful for LiveTeXing during lectures. To see the package in use, check out the [classnotes.pdf](https://github.com/neilrathi/classnotes/blob/main/classnotes.pdf) file in this repository. The rest of the readme is essentially documentation for all of the special commands and features.
+The `classnotes` package is a package for LaTeX2e which has pre-loaded packages, environments, and shorthand commands for a variety of fields including math, chemistry, and linguistics. It's useful for anyone who wants to create organized, clear lecture notes which can be easily used for review, and especially helpful for LiveTeXing during lectures. To see the package in use, check out the [classnotes.pdf](https://github.com/neilrathi/classnotes/blob/main/examples/classnotes.pdf) file in this repository. The rest of the readme is essentially documentation for all of the special commands and features.
 
 To install the package, follow standard procedure for installing a custom `.sty` file. If you're unsure how to do that, check out [this link](https://tex.stackexchange.com/questions/1137/where-do-i-place-my-own-sty-or-cls-files-to-make-them-available-to-all-my-te). After loading the package with `usepackage{classnotes}`, you should require minimal setup. Just create a title and author, and then begin your document.
 
 Feel free to use this package for any of your own personal use. If you can, it would be great to reference me as the creator.
 
-You can pass in the `human`, `gara`, `transitional`, `dido`, `mech`, `sans`, and `cms` options to change the document font (the first five refer to their Vox-ATypI categories—Caelacanth, Garamond, Libertinus , TeX Gyre Schola, and Computer Concrete–sans is Latin Modern Sans, and cms is Computer Modern Sans). You can also pass in the `mathfont` option to have the math mode font match the rest of the text.
+You can pass in the `human`, `gara`, `transitional`, `dido`, `mech`, `sans`, and `cms` options to change the document font (the first five refer to their Vox-ATypI categories (Caelacanth, Garamond, Libertinus , TeX Gyre Schola, and Computer Concrete), sans is Latin Modern Sans, and cms is Computer Modern Sans). You can also pass in the `mathfont` option to have the math mode font match the rest of the text.
 
 Finally, you can use the `colors` option to make the document more colorful, with green, blue, purple, and red theorem boxes. This is ideal for less "formal" notes that can be easier to read, since the theorems are even more clearly separated from the text.
 
