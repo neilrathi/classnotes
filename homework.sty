@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{classnotes}[2020/12/22]
+\ProvidesPackage{homework}[2020/12/22]
 
 %%%%%% Basic Formatting %%%%%%
 % Fonts
@@ -18,20 +18,17 @@
 \newif\if@loadcmsfont
 \DeclareOption{cms}{\@loadcmsfonttrue}
 
-\newif\if@darkmode
-\DeclareOption{darkmode}{\@darkmodetrue}
-
 \newif\if@loadcolors\@loadcolorsfalse
 \DeclareOption{colors}{\@loadcolorstrue}
+
+\newif\if@darkmode
+\DeclareOption{darkmode}{\@darkmodetrue}
 
 \newif\if@mathfont
 \DeclareOption{mathfont}{\@mathfonttrue}
 
 \newif\if@compilation
 \DeclareOption{compilation}{\@compilationtrue}
-
-\newif\if@pset
-\DeclareOption{pset}{\@psettrue}
 
 \ProcessOptions\relax
 
@@ -113,8 +110,6 @@
     \color[rgb]{0.9,0.9,0.9}
 \fi
 
-\usepackage{inconsolata}
-
 % General Packages
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
@@ -131,20 +126,14 @@
 \makeatletter
 \renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
 
-	\vspace*{0.15\textheight}
+	\vspace*{0\textheight}
 	
 	\begin{center}
 		\parbox{0.7\linewidth}{\begin{center}
-		\Huge{{\@title}}
+		\Large{{\@title}}
 		\end{center}}
 	
-		\bigskip
-	
-		{\large{\textsc{\@author}}}
-	
 		\medskip
-		
-		{\large{\textit{\@date}}}
 	\end{center}\egroup}
 
 \renewcommand{\cftsecfont}{}
@@ -160,26 +149,11 @@
 	\renewcommand{\cftsecfont}{\itshape}
 \fi
 
-\if@pset
-    \renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
-    
-	\vspace*{0.05\textheight}
-	
-	\begin{flushleft}
-		\parbox{0.7\linewidth}{\begin{flushleft}\huge{\textbf{\@title}}
-		\end{flushleft}}
-	
-		\medskip
-		
-		{\large{\textsc{\@date}}}
-	\end{flushleft}\egroup}
-\fi
-
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \fancyfoot[R]{\small{\@title}}
-\fancyhead[C]{\small{\textsc{\leftmark}}}
+\fancyhead[R]{{\@author \\ \textit{\@date}}}
 \fancyfoot[L]{\small{\thepage}}
 \makeatother
 
@@ -310,16 +284,16 @@
 ]{redcomment}
 
 % Theorem Boxes
+% Theorem Boxes
 \ifthenelse{\boolean{@loadcolors}}{
 		\declaretheorem[style = bluethm, name = Theorem, parent = section]{thrm}
 		\declaretheorem[style = bluethm, name = Equation, sibling = thrm]{eqn}
-		\declaretheorem[style = bluethm, name = Lemma, sibling = thrm]{lemma}
+		\declaretheorem[style = bluethm, name = Lemma, numbered = no]{lemma}
 		\declaretheorem[style = bluethm, name = Corollary, sibling = thrm]{corr}
 		\declaretheorem[style = bluethm, name = Law, sibling = thrm]{law}
 		\declaretheorem[style = bluethm, name = Algorithm, sibling = thrm]{algo}
 		\declaretheorem[style = simplethm, name = Diagram, sibling = thrm]{diagram}
 		\declaretheorem[style = simpledefn, name = Definition, parent = section]{defn}
-		\declaretheorem[style = simpledefn, name = Axiom, parent = section]{axiom}
 		\declaretheorem[style = greencomment, name = Remark, numbered = no]{remark}
 		\declaretheorem[style = greencomment, name = Hint, numbered = no]{hint}
 		\declaretheorem[style = redcomment, name = Question, numbered = no]{question}
@@ -328,7 +302,7 @@
 		\declaretheorem[style = greencomment, name = Conjecture, numbered = no]{conj}
 		\declaretheorem[style = greencomment, name = Proposition, numbered = no]{prop}
 	}{
-		\declaretheorem[style = simplethm, name = Theorem, parent = section]{thrm}
+		\declaretheorem[style = simplethm, name = Theorem]{thrm}
 		\declaretheorem[style = simplethm, name = Equation, sibling = thrm]{eqn}
 		\declaretheorem[style = simplethm, name = Lemma, sibling = thrm]{lemma}
 		\declaretheorem[style = simplethm, name = Corollary, sibling = thrm]{corr}
@@ -336,7 +310,6 @@
 		\declaretheorem[style = simplethm, name = Algorithm, sibling = thrm]{algo}
 		\declaretheorem[style = simplethm, name = Diagram, sibling = thrm]{diagram}
 		\declaretheorem[style = simpledefn, name = Definition, parent = section]{defn}
-		\declaretheorem[style = simpledefn, name = Axiom, parent = section]{axiom}
 		\declaretheorem[style = simplecomment, name = Remark, numbered = no]{remark}
 		\declaretheorem[style = simplecomment, name = Hint, numbered = no]{hint}
 		\declaretheorem[style = simplecomment, name = Question, numbered = no]{question}
@@ -347,7 +320,7 @@
 	}
 
 \theoremstyle{definition}
-\newtheorem{problem}{Problem}[section]
+\newtheorem{problem}{Problem}
 
 %%%%%% Proofs and Solutions %%%%%%
 % Proofs
@@ -387,9 +360,6 @@
 \RequirePackage{mathrsfs}
 \RequirePackage{mathtools}
 \RequirePackage{xfrac}
-
-\newcommand{\st}{\text{ s.t. }}
-\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
 
 \newcommand{\DeclareAutoPairedDelimiter}[3]{%
   \expandafter\DeclarePairedDelimiter\csname Auto\string#1\endcsname{#2}{#3}%
