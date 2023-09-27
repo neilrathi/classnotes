@@ -1,5 +1,5 @@
 # `classnotes`
-latex for lectures. examples [here](https://neilrathi.github.io/notes.html).
+latex for lectures. examples [here](https://web.stanford.edu/~rathi/notes.html).
 
 ## about
 this is a pdfLaTeX package which is effectively a template for making pretty notes. it comes with preloaded packages/environments/shorthands for things that i do (e.g. math, linguistics, cs, chem) and is primarily built to make writing LaTeX notes in lecture significantly faster & easier.
