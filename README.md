@@ -8,7 +8,7 @@ this is a pdfLaTeX package which is effectively a template for making pretty not
 
 ### style
 
-there are seven(!!) font options which you can pass as you load the package: `human`, `gara`, `transitional`, `dido`, `mech`, `sans`, and `cms`. you can also pass in the `mathfont` option to have the math font match the rest of the text, i personally think this looks worse but you do you.
+there are seven font options which you can pass as you load the package: `human`, `gara`, `transitional`, `dido`, `mech`, `sans`, and `cms`. you can also pass in the `mathfont` option to have the math font match the rest of the text.
 
 if you want slightly more exciting notes you can use the `colors` option, which just redefines the colors of the theorem environments.
 
@@ -26,6 +26,6 @@ you can create quite a few different environments with this, incl. `eqn`, `lemma
 
 ### special commands
 
-the package preloads like every standard math + cs + linguistics + physics/chem package. i've defined a reasonable amount of common shorthands which you can find via going through the package; some of these are just things that i prefer (e.g. `\eps = \varepsilon`). i also include auto-sized delimiters like `\p{}` and `\floor{}`.
+the package preloads most standard math + cs + linguistics + physics/chem packages. i've defined a reasonable amount of common shorthands which you can find via going through the package; some of these are just things that i prefer (e.g. `\eps = \varepsilon`). i also include auto-sized delimiters like `\p{}` and `\floor{}`.
 
 for linguistics i use forest rather than gb4e. there are a couple fun shorthands like `\phonss` and `\denot[]{}`.
