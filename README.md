@@ -1,8 +1,8 @@
 # `classnotes`
-latex for lectures. examples [here](https://web.stanford.edu/~rathi/notes.html).
+latex for lectures. examples [here](https://web.stanford.edu/~rathi/notes/).
 
 ## about
-this is a pdfLaTeX package which is effectively a template for making pretty notes. it comes with preloaded packages/environments/shorthands for things that i do (e.g. math, linguistics, cs, chem) and is primarily built to make writing LaTeX notes in lecture significantly faster & easier.
+this is a pdfLaTeX package which is effectively a template for taking notes. it comes with preloaded packages / environments / shorthands for things that i do (math, linguistics, cs) and is primarily built to make writing LaTeX notes in lecture significantly faster & easier.
 
 ## basic functionality
 
@@ -22,10 +22,10 @@ you can create a theorem-like environment by writing
 \end{thrm}
 ```
 
-you can create quite a few different environments with this, incl. `eqn`, `lemma`, `corr`, `algo`, `defn`, `example`, `remark`, `claim`, and a substantial amount more. you can also write a `solution` or a two-column proof in a similar way.
+you can create quite a few different environments with this, e.g. `lemma`, `algo`, `defn`, `example`, `remark`, etc. you can also write a `solution` in a similar way.
 
 ### special commands
 
-the package preloads most standard math + cs + linguistics + physics/chem packages. i've defined a reasonable amount of common shorthands which you can find via going through the package; some of these are just things that i prefer (e.g. `\eps = \varepsilon`). i also include auto-sized delimiters like `\p{}` and `\floor{}`.
+the package preloads most standard math + cs + linguistics + physics/chem packages. i've defined a reasonable amount of common shorthands which you can find via going through the package. some of these are just things that i prefer (e.g. `\eps` = `\varepsilon`). i also include auto-sized delimiters like `\p{}` and `\floor{}`.
 
 for linguistics i use forest rather than gb4e. there are a couple fun shorthands like `\phonss` and `\denot[]{}`.
